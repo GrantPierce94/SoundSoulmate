@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout"
+    android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/wave"
+        android:layout_width="match_parent"
+        android:layout_height="243dp"
+        android:background="@drawable/wave1" />
+
+    <TextView
+        android:id="@+id/settingPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="80dp"
+        android:text="Friends"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/usernameLayout"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/wave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <EditText
+            android:id="@+id/friendUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:padding="12dp"
+            android:background="@drawable/custom_edittextseed"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:hint="Username"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/addandRemove"
+        android:layout_below="@id/usernameLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/addFriend"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray"
+            android:text="Add"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/removeFriend"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/addFriend"
+            android:backgroundTint="@color/gray"
+            android:layout_marginLeft="16dp"
+            android:text="Remove"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/profileandchat"
+        android:layout_below="@id/addandRemove"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/friendList"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray"
+            android:text="Profile"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/openChat"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/friendList"
+            android:backgroundTint="@color/gray"
+            android:layout_marginLeft="16dp"
+            android:text="Chat"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id='@+id/howmanyfriends'
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileandchat"
+        android:textAlignment="center"
+        android:layout_marginTop="5dp"
+        android:text="Friends"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/friendsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/howmanyfriends"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_marginTop="00dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_horizontal">
+    </LinearLayout>
+
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/black"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>
