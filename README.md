@@ -1,35 +1,118 @@
-# SoundSoulmate
-Welcome to SoundSoulmate, an app designed to help you discover new music that resonates with your taste! SoundSoulmate provides a seamless experience by allowing users to connect their Spotify accounts, enabling personalized song recommendations based on their preferences.
+SoundSoulmate – Personalized Music Discovery App
+SoundSoulmate is a full-stack mobile application that connects users with new music based on their listening preferences. By integrating with Spotify’s API and leveraging a recommendation engine, users can input a seed song and receive curated suggestions. The app also includes real-time chat, friend interactions, and user profile analytics.
 
 Features
-Personalized Recommendations
-SoundSoulmate offers users the ability to input a song of their choice as a reference point. Our advanced algorithm then generates a curated list of music recommendations based on the provided song, allowing users to explore and discover new tracks that match their musical taste.
+Personalized Music Recommendations
+Enter a song to receive curated tracks using a Recurrent Recommender Network (RRN)-based algorithm.
 
 Spotify Integration
-Easily connect your Spotify account to SoundSoulmate for a seamless music discovery experience. Discover new songs and instantly add them to a dedicated playlist on your Spotify account by simply swiping up on the recommended tracks.
+Link a Spotify account to fetch listening history, favorite tracks, and allow playlist creation directly from the app.
 
-Profile Interactions
-SoundSoulmate offers users a personalized profile where they can:
+User Profiles
+View personal listening statistics such as top artists and all-time favorite songs.
 
-View their all-time top song and artist based on their listening history.
-Connect and interact with friends' profiles.
-Engage in conversations with friends through the in-app chat feature.
-Getting Started
-To get started with SoundSoulmate, follow these steps:
+Real-Time Chat
+Communicate with friends through an in-app messaging system built with WebSocket technology.
 
-Sign Up/Login: Create an account or log in using your credentials.
-Connect Spotify: Link your Spotify account to SoundSoulmate to access its full range of features.
-Discover Music: Type in the name of a song to receive tailored recommendations or explore the app's suggestions.
-Swipe and Add: Swipe through recommended tracks and add your favorites directly to your Spotify playlist with a simple swipe-up gesture.
+Social Discovery
+Browse friends’ profiles and connect through shared musical interests.
+
+Architecture Overview
+This is a full-stack application with separation between frontend and backend components.
+
+Frontend
+Platform: Android (Java, XML Layouts)
+
+Functionality:
+
+User login and authentication
+
+Song input and discovery UI
+
+Spotify playlist linking and control
+
+Swipe gesture support for playlist adds
+
+Backend
+Platform: Spring Boot (Java)
+
+Database: Firebase Realtime Database
+
+Functionality:
+
+Recommender logic
+
+WebSocket chat server
+
+Spotify OAuth and API communication
+
+User data management
+
+DevOps & Development Workflow
+Methodology: Waterfall approach, structured through requirements gathering, design, development, testing, and deployment.
+
+Version Control: Git and GitHub with centralized branching and pull request workflow.
+
+CI/CD: Implemented with GitHub Actions for automated builds and backend testing.
+
+Project Management: Used GitHub Projects and internal planning documents to coordinate work and milestone completion.
+
+Testing: Manual black-box testing on emulators and physical devices.
+
+Installation
+Android Frontend
+Clone the repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/GrantPierce94/SoundSoulmate.git
+Open the /Frontend directory in Android Studio.
+
+Sync Gradle and run the application using an emulator or Android device.
+
+Backend Server
+Ensure Java 11+ is installed.
+
+Navigate to the /Backend directory:
+
+bash
+Copy
+Edit
+./gradlew build
+java -jar build/libs/soundsoulmate-server.jar
+Firebase credentials should be properly configured in the environment.
+
+How to Use
+Create an account or log in using your credentials.
+
+Connect your Spotify account.
+
+Enter a favorite song to receive recommendations.
+
+Swipe through the suggestions and add songs to your Spotify playlist.
+
+View profile statistics or interact with friends via chat.
+
 Technologies Used
-SoundSoulmate utilizes cutting-edge technologies to deliver a seamless music discovery experience, including:
+Android (Java)
 
-Algorithmic Recommendations: Our advanced recommendation system is powered by Recurrent Recommender Networks (RRNs) .
-Spotify API Integration: Seamless integration with the Spotify API to access and manage user playlists.
-Chat Feature: Utilizes websockets for in-app messaging between users.
-User Profiles: Customized user profiles created using Firebase Realtime Database.
-Contributing
-We welcome contributions from the community to enhance SoundSoulmate further. If you'd like to contribute, please follow our Contribution Guidelines.
+Spring Boot
 
-Feedback and Support
-For any issues, feedback, or feature requests, feel free to reach out to our support team at support@soundsoulmate.com. We value your input and are committed to improving the SoundSoulmate experience.
+Spotify Web API
+
+WebSockets
+
+Firebase Realtime Database
+
+GitHub Actions (CI/CD)
+
+Contributors
+Grant Pierce – Backend integration, Spotify OAuth, CI/CD
+
+Jack – Android development, WebSocket implementation
+
+Danny – Recommendation algorithm, Firebase configuration
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
