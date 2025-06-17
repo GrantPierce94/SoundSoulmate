@@ -1,118 +1,127 @@
-SoundSoulmate – Personalized Music Discovery App
-SoundSoulmate is a full-stack mobile application that connects users with new music based on their listening preferences. By integrating with Spotify’s API and leveraging a recommendation engine, users can input a seed song and receive curated suggestions. The app also includes real-time chat, friend interactions, and user profile analytics.
+# SoundSoulmate – Personalized Music Discovery App (Full-Stack Java + Android)
 
-Features
-Personalized Music Recommendations
-Enter a song to receive curated tracks using a Recurrent Recommender Network (RRN)-based algorithm.
+**SoundSoulmate** is a full-stack mobile application that personalizes music recommendations based on user preferences and real-time Spotify data. Built with Android (Java) on the client side and Spring Boot on the backend, the app enables users to enter a seed song and receive curated suggestions via a custom-built recommendation engine. It includes Spotify OAuth integration, live chat via WebSockets, and user analytics for enhanced engagement.
 
-Spotify Integration
-Link a Spotify account to fetch listening history, favorite tracks, and allow playlist creation directly from the app.
+Developed collaboratively using a structured development lifecycle, the project balances recommendation accuracy, responsive UI, and foundational security practices.
 
-User Profiles
-View personal listening statistics such as top artists and all-time favorite songs.
+## Security-Conscious Design Principles
 
-Real-Time Chat
-Communicate with friends through an in-app messaging system built with WebSocket technology.
+- **Spotify OAuth Integration**  
+  Implements secure OAuth 2.0 token handling and session validation to ensure user account protection when linking Spotify.
 
-Social Discovery
-Browse friends’ profiles and connect through shared musical interests.
+- **Scoped API Access**  
+  All Spotify and internal API calls are scoped by access token, ensuring least-privilege design in both music data retrieval and user profile interaction.
 
-Architecture Overview
-This is a full-stack application with separation between frontend and backend components.
+- **WebSocket Session Control**  
+  Chat system enforces authenticated WebSocket connections and isolates messages between authorized users to prevent spoofing or cross-user injection.
 
-Frontend
-Platform: Android (Java, XML Layouts)
+- **Firebase Data Validation Rules**  
+  Realtime database access is protected by authentication state and structured path-level access control to enforce proper authorization.
 
-Functionality:
+- **Input Validation & Data Sanitization**  
+  Backend endpoints apply strict validation for all song, user, and message inputs to mitigate injection and data integrity issues.
 
-User login and authentication
+## Features
 
-Song input and discovery UI
+- **Personalized Music Recommendations**  
+  Input a song to receive curated tracks using a Recurrent Recommender Network (RRN)-based logic trained on user preference patterns.
 
-Spotify playlist linking and control
+- **Spotify Account Linking**  
+  Authenticate via Spotify to import top artists, saved tracks, and allow playlist creation or modification directly from the app.
 
-Swipe gesture support for playlist adds
+- **Real-Time Chat System**  
+  In-app messaging system allows users to chat with friends using secure WebSocket communication.
 
-Backend
-Platform: Spring Boot (Java)
+- **User Profiles & Analytics**  
+  Users can view personalized music stats including top songs, listening history, and discovery preferences.
 
-Database: Firebase Realtime Database
+- **Social Discovery & Matching**  
+  Browse other users’ profiles and connect based on shared music tastes and interaction history.
 
-Functionality:
+## Architecture Overview
 
-Recommender logic
+### Frontend
 
-WebSocket chat server
+- **Platform**: Android (Java, XML Layouts)  
+- **Features**:
+  - Spotify login and token handling
+  - Input interface for music discovery
+  - Playlist interaction and display
+  - Gesture controls and user profile views
 
-Spotify OAuth and API communication
+### Backend
 
-User data management
+- **Platform**: Spring Boot (Java)  
+- **Database**: Firebase Realtime Database  
+- **Components**:
+  - REST endpoints for music discovery and profile access
+  - WebSocket server for chat and live communication
+  - Spotify OAuth 2.0 token exchange and API proxying
+  - RRN-based recommendation module for song selection
 
-DevOps & Development Workflow
-Methodology: Waterfall approach, structured through requirements gathering, design, development, testing, and deployment.
+## Setup Instructions
 
-Version Control: Git and GitHub with centralized branching and pull request workflow.
+### Android Frontend
 
-CI/CD: Implemented with GitHub Actions for automated builds and backend testing.
-
-Project Management: Used GitHub Projects and internal planning documents to coordinate work and milestone completion.
-
-Testing: Manual black-box testing on emulators and physical devices.
-
-Installation
-Android Frontend
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/GrantPierce94/SoundSoulmate.git
-Open the /Frontend directory in Android Studio.
-
-Sync Gradle and run the application using an emulator or Android device.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GrantPierce94/SoundSoulmate.git
+Open /Frontend in Android Studio
+Sync Gradle and run the app using an Android emulator or device
 
 Backend Server
-Ensure Java 11+ is installed.
-
-Navigate to the /Backend directory:
-
-bash
-Copy
-Edit
+Install Java 11+
+Configure Firebase credentials and environment variables
+Navigate to /Backend and build:
 ./gradlew build
 java -jar build/libs/soundsoulmate-server.jar
-Firebase credentials should be properly configured in the environment.
 
-How to Use
-Create an account or log in using your credentials.
+Project Structur
+├── Frontend/              # Android app
+│   ├── activities/        # Login, Discovery, Profile, Chat
+│   ├── services/          # Spotify access, chat client
+│   └── ui/                # Layouts and screen flows
+│
+├── Backend/               # Spring Boot server
+│   ├── controllers/       # REST endpoints
+│   ├── services/          # Recommender logic and chat handling
+│   └── spotify/           # OAuth integration and API proxy
+│
+├── sql/                   # Firebase rules and mock data (if applicable)
+└── README.md              # Project documentation
 
-Connect your Spotify account.
+Development & Testing Workflow
+Manual black-box testing on emulators and devices
+Token lifecycle and authentication failure testing
+Spotify API mock testing
+GitHub Actions CI/CD for backend builds and linting
+Milestone-driven waterfall development process
 
-Enter a favorite song to receive recommendations.
+Tools & Technologies
+Frontend: Android SDK, Java, XML Layouts
+Backend: Spring Boot, REST APIs, WebSockets
+Database: Firebase Realtime Database
+Integrations: Spotify Web API (OAuth 2.0)
+CI/CD: GitLab
+Version Control: Git + GitHub
 
-Swipe through the suggestions and add songs to your Spotify playlist.
-
-View profile statistics or interact with friends via chat.
-
-Technologies Used
-Android (Java)
-
-Spring Boot
-
-Spotify Web API
-
-WebSockets
-
-Firebase Realtime Database
-
-GitHub Actions (CI/CD)
+Project Management: GitHub Projects, milestone planning
 
 Contributors
-Grant Pierce – Backend integration, Spotify OAuth, CI/CD
+Grant Pierce (GitHub: @GrantPierce94) – Backend & DevOps Lead
+Integrated Spotify OAuth and playlist functionality
+Developed backend services and deployed CI/CD pipelines
+Led application packaging and system testing
 
-Jack – Android development, WebSocket implementation
+Jack – Frontend Developer & Chat System Engineer
+Built Android UI for login, chat, and profile components
+Implemented real-time WebSocket chat system
+Designed swipe/gesture-based music interface
 
-Danny – Recommendation algorithm, Firebase configuration
+Danny – Recommendation Engine Developer
+Developed RRN logic for personalized song suggestions
+Tuned backend responses and Firebase schema
+Contributed to model training and testing
 
 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
