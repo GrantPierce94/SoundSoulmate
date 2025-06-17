@@ -76,7 +76,8 @@ Navigate to /Backend and build:
 ./gradlew build
 java -jar build/libs/soundsoulmate-server.jar
 
-Project Structur
+Project Structure
+```
 ├── Frontend/              # Android app
 │   ├── activities/        # Login, Discovery, Profile, Chat
 │   ├── services/          # Spotify access, chat client
@@ -89,6 +90,7 @@ Project Structur
 │
 ├── sql/                   # Firebase rules and mock data (if applicable)
 └── README.md              # Project documentation
+```
 
 Development & Testing Workflow
 Manual black-box testing on emulators and devices
@@ -108,20 +110,20 @@ Version Control: Git + GitHub
 Project Management: GitHub Projects, milestone planning
 
 Contributors
-Grant Pierce (GitHub: @GrantPierce94) – Backend & DevOps Lead
-Integrated Spotify OAuth and playlist functionality
-Developed backend services and deployed CI/CD pipelines
-Led application packaging and system testing
+- **Grant Pierce** ([GitHub: @GrantPierce94](https://github.com/GrantPierce94)) – *Backend & DevOps Lead*  
+  - Integrated Spotify OAuth and playlist functionality  
+  - Developed backend services and deployed CI/CD pipelines
+  - Led application packaging and system testing
 
-Jack – Frontend Developer & Chat System Engineer
-Built Android UI for login, chat, and profile components
-Implemented real-time WebSocket chat system
-Designed swipe/gesture-based music interface
+- **Jack** – *Frontend Developer & Chat System Engineer*  
+  - Built Android UI for login, chat, and profile components  
+  - Implemented real-time WebSocket chat system  
+  - Designed swipe/gesture-based music interface
 
-Danny – Recommendation Engine Developer
-Developed RRN logic for personalized song suggestions
-Tuned backend responses and Firebase schema
-Contributed to model training and testing
+- **Danny** – *Backend Developer*  
+  - Developed RRN logic for personalized song suggestions
+  - Tuned backend responses and Firebase schema
+  - Contributed to model training and testing
 
 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
